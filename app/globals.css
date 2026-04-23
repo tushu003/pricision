@@ -22,5 +22,34 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Hero entrance — respects reduced motion */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-enter {
+  animation: hero-enter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-hero-enter-delay {
+  animation: hero-enter 0.85s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-enter,
+  .animate-hero-enter-delay {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
