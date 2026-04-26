@@ -23,40 +23,34 @@ const CATEGORIES: CategoryCard[] = [
     name: "Headphones",
     slug: "earbuds",
     label: "Popular",
-    imageSrc:
-      "https://images.unsplash.com/photo-1518441902117-f0a608e89c8d?auto=format&fit=crop&w=1200&q=80",
+    imageSrc: "/images/categories/headphones.svg",
   },
   {
     name: "Chargers",
     slug: "chargers",
     label: "Popular",
-    imageSrc:
-      "https://images.unsplash.com/photo-1583863788434-e58a36330de3?auto=format&fit=crop&w=1200&q=80",
+    imageSrc: "/images/categories/chargers.svg",
   },
   {
     name: "Cables",
     slug: "cables",
-    imageSrc:
-      "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1200&q=80",
+    imageSrc: "/images/categories/cables.svg",
   },
   {
     name: "Power Banks",
     slug: "power-banks",
     label: "New",
-    imageSrc:
-      "https://images.unsplash.com/photo-1612817159623-03970f9137cf?auto=format&fit=crop&w=1200&q=80",
+    imageSrc: "/images/categories/power-banks.svg",
   },
   {
     name: "Smart Gadgets",
     slug: "smart-gadgets",
-    imageSrc:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
+    imageSrc: "/images/categories/smart-gadgets.svg",
   },
   {
     name: "Accessories",
     slug: "cases",
-    imageSrc:
-      "https://images.unsplash.com/photo-1523475496153-3d6cc0f0bfca?auto=format&fit=crop&w=1200&q=80",
+    imageSrc: "/images/categories/accessories.svg",
   },
 ];
 
@@ -85,7 +79,7 @@ export function TopCategories({ className }: TopCategoriesProps) {
                 className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-zinc-950/15 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-zinc-950/55 via-zinc-950/15 to-transparent" />
               {c.label ? (
                 <div className="absolute left-4 top-4 inline-flex rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-zinc-900 shadow-sm backdrop-blur dark:bg-zinc-950/80 dark:text-white">
                   {c.label}
