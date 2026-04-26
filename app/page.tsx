@@ -4,6 +4,7 @@ import { ROUTES } from "@/constants";
 import { getMockProducts } from "@/lib/mock-products";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { BestSellers } from "@/components/home/BestSellers";
+import { TopCategories } from "@/components/home/TopCategories";
 
 export default function HomePage() {
   const products = getMockProducts();
@@ -35,6 +36,8 @@ export default function HomePage() {
       </section>
 
       <BestSellers products={products} />
+
+      <TopCategories />
 
       <section className="border-t border-zinc-200 bg-white py-14 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
