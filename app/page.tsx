@@ -7,6 +7,7 @@ import { BestSellers } from "@/components/home/BestSellers";
 import { TopCategories } from "@/components/home/TopCategories";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { CustomerReviews } from "@/components/home/CustomerReviews";
+import { FlashSale } from "@/components/home/FlashSale";
 
 export default function HomePage() {
   const products = getMockProducts();
@@ -44,6 +45,8 @@ export default function HomePage() {
       <WhyChooseUs />
 
       <CustomerReviews />
+
+      <FlashSale />
 
       <section className="border-t border-zinc-200 bg-white py-14 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
