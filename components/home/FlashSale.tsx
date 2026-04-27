@@ -42,28 +42,29 @@ function msToParts(ms: number) {
 }
 
 export function FlashSale({ className, durationMs = 6 * 60 * 60 * 1000 }: FlashSaleProps) {
-  const [endAt, setEndAt] = React.useState<number | null>(null);
   const [now, setNow] = React.useState(() => Date.now());
+  const [endAt] = React.useState<number>(() => {
+    const nowMs = Date.now();
+    if (typeof window === "undefined") return nowMs + durationMs;
 
-  React.useEffect(() => {
     const key = "techgear_flash_sale_end_at";
-    const existing = typeof window !== "undefined" ? window.localStorage.getItem(key) : null;
+    const existing = window.localStorage.getItem(key);
     const parsed = existing ? Number(existing) : NaN;
-    const nextEnd = Number.isFinite(parsed) && parsed > Date.now() ? parsed : Date.now() + durationMs;
-    setEndAt(nextEnd);
+    const nextEnd = Number.isFinite(parsed) && parsed > nowMs ? parsed : nowMs + durationMs;
     try {
       window.localStorage.setItem(key, String(nextEnd));
     } catch {
       // ignore storage errors (private mode, etc.)
     }
-  }, [durationMs]);
+    return nextEnd;
+  });
 
   React.useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
   }, []);
 
-  const remaining = endAt ? Math.max(0, endAt - now) : durationMs;
+  const remaining = Math.max(0, endAt - now);
   const { hours, minutes, seconds } = msToParts(remaining);
 
   return (
